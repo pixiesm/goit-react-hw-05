@@ -1,0 +1,7 @@
+.wrapper {
+  display: flex;
+  padding: 15px;
+}
+.item {
+  margin-bottom: 15px;
+}

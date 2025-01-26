@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { fetchTrendingMovies } from "../../services/api";
 import MovieList from "../../components/MovieList/MovieList";
+import s from "./HomePage.module.css";
 
 const HomePage = () => {
-  const [movies, setMovies] = useState([]);
+  const [trendMovies, setTrendMovies] = useState([]);
   useEffect(() => {
     document.title = "Home Page";
     const getTrendingMovies = async () => {
       try {
         const data = await fetchTrendingMovies();
-        setMovies(data);
+        setTrendMovies(data);
       } catch (error) {
         console.log(error);
       }
@@ -19,8 +20,10 @@ const HomePage = () => {
 
   return (
     <>
-      <h2>Trending today</h2>
-      <MovieList movies={movies} />
+      <div className={s.wrapper}>
+        <h2 className={s.title}>Trending today</h2>
+        <MovieList movies={trendMovies} />
+      </div>
     </>
   );
 };

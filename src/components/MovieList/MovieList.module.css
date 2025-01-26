@@ -1,0 +1,13 @@
+.wrapper {
+  margin-top: 15px;
+}
+.list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1260px;
+  gap: 20px;
+}
+.image {
+  margin-bottom: 10px;
+}

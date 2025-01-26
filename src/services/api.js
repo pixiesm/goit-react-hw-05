@@ -31,3 +31,13 @@ export const fetchMovieReviews = async (movieId) => {
   const { data } = await axios.get(`/movie/${movieId}/reviews`, options);
   return data.results;
 };
+
+export const fetchMovieByQuery = async (query) => {
+  const { data } = await axios.get(`/search/movie?query=${query}`, options);
+  return data.results;
+};
+
+// export const fetchMovieByQuery = async (query) => {
+//   const { data } = await axios.get(`/search/movie?query=${query}`, options);
+//   return data.results;
+// };

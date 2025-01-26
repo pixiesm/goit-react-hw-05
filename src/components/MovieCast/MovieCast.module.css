@@ -1,0 +1,20 @@
+.actorList {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  max-width: 1080px;
+  padding-bottom: 50px;
+}
+
+p {
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 24px;
+}
+.actor {
+  width: 300px;
+  border: 2px solid #0a2351;
+  text-align: center;
+}

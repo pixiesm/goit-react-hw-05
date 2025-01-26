@@ -1,0 +1,25 @@
+.wrapper {
+  padding: 20px;
+  background-color: #d8bfd8;
+  width: auto;
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  box-shadow: 5px 2px 2px rgb(207, 175, 175);
+}
+.wrapperLinks {
+  display: flex;
+  gap: 15px;
+}
+.link {
+  color: rgb(201, 126, 139);
+  font-weight: bold;
+  text-decoration: none;
+  font: "Fira Sans";
+  font-size: 20px;
+}
+.activeLink {
+  color: white;
+}

@@ -1,26 +1,34 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Header from "./components/Header/Header";
-import NotFound from "./pages/NotFound/NotFound";
-import HomePage from "./pages/HomePage/HomePage";
-import MoviesPage from "./pages/MoviesPage/MoviesPage";
-import MovieDetailsPage from "./pages/MovieDetailsPage/MovieDetailsPage";
-import MovieCast from "./components/MovieCast/MovieCast";
-import MovieReviews from "./components/MovieReviews/MovieReviews";
+import { lazy, Suspense } from "react";
+
+const Navigation = lazy(() => import("./components/Navigation/Navigation"));
+const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const MoviesPage = lazy(() => import("./pages/MoviesPage/MoviesPage"));
+const MovieDetailsPage = lazy(() =>
+  import("./pages/MovieDetailsPage/MovieDetailsPage")
+);
+const MovieCast = lazy(() => import("./components/MovieCast/MovieCast"));
+const MovieReviews = lazy(() =>
+  import("./components/MovieReviews/MovieReviews")
+);
 
 function App() {
   return (
     <>
-      <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/movies" element={<MoviesPage />} />
-        <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
-          <Route path="cast" element={<MovieCast />} />
-          <Route path="reviews" element={<MovieReviews />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Suspense>
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/movies" element={<MoviesPage />} />
+          <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
+            <Route path="cast" element={<MovieCast />} />
+            <Route path="reviews" element={<MovieReviews />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
     </>
   );
 }
